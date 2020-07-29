@@ -25,7 +25,7 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
    ![1](./img/1.png)
 
-   *검색화면*
+   ![1-2](./img/1-2.JPG)
 
 2. 여기에서 다운로드 받은 후 QGIS의 플러그인 메뉴에서 'Install from ZIP' 으로 설치가 가능하다.
 
@@ -46,10 +46,10 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
    ![3](./img/3.png)
 
-2. New 버튼을 클릭하여 새로운 커넥션 정보를 생성한다.
-   이때, DSN은 'ODBC 데이터 원본 관리자'에 등록된 DSN이어야 한다.
-   Options에 세션 프로퍼티를 설정할 수 있다.
-   예시) timeout=3;connection_timeout=60 
+2. New 버튼을 클릭하여 새로운 커넥션 정보를 생성한다.  
+   이때, DSN은 'ODBC 데이터 원본 관리자'에 등록된 DSN이어야 한다.  
+   Options에 세션 프로퍼티를 설정할 수 있다.  
+   예시) timeout=3;connection_timeout=60  
    Altibase 접속에 필요한 모든 정보 입력 후 'Test Connection'을 해보고 성공하면 OK버튼을 누른다.
 
 3. Altibase QGIS Plugin Dialog로 돌아와서 커넥션 이름을 확인하고 Connect 버튼을 클릭한다. Altibase로 연결이 성공하면 geometry tables 목록이 나타난다.
