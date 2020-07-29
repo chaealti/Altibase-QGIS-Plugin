@@ -477,10 +477,12 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
 
             i=0
             for featureid, attributes in attribute_map.items():
-
-                if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                    QgsMessageLog.logMessage('Cannot change invalid feature (%s) attribute values.' % str(featureid), 'AltibasePlugin')
-                    continue
+                try:
+                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
+                        QgsMessageLog.logMessage('Cannot change invalid feature (%s) attribute values.' % str(featureid), 'AltibasePlugin')
+                        continue
+                except:
+                    pass
 
                 query_dic = {}
 
@@ -549,9 +551,12 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
 
             i=0
             for featureid, geometry in geometry_map.items():
-                if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                    QgsMessageLog.logMessage('Cannot change invalid feature (%s) geometry.' % str(featureid), 'AltibasePlugin')
-                    continue
+                try:
+                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
+                        QgsMessageLog.logMessage('Cannot change invalid feature (%s) geometry.' % str(featureid), 'AltibasePlugin')
+                        continue
+                except:
+                    pass
 
                 query_dic = {}
 
