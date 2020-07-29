@@ -23,7 +23,7 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 1. QGIS의 플러그인 메뉴에서 검색하여 설치할 수 있다.
 
-   ![1](C:\Users\ALTIBASE\Pictures\1.png)
+   ![1](./img/1.png)
 
    *검색화면*
 
