@@ -31,7 +31,7 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
    *zip파일 첨부*
 
-   ![2](C:\Users\ALTIBASE\Pictures\2.png)
+   ![2](./img/2.png)
 
    
 
@@ -44,7 +44,7 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 1. Altibase QGIS Plugin 설치가 완료되면 Plugins -> Altibase QGIS Plugin을 실행한다.
 
-   ![3](C:\Users\ALTIBASE\Pictures\3.png)
+   ![3](./img/3.png)
 
 2. New 버튼을 클릭하여 새로운 커넥션 정보를 생성한다.
    이때, DSN은 'ODBC 데이터 원본 관리자'에 등록된 DSN이어야 한다.
