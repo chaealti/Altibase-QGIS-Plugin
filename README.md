@@ -86,7 +86,9 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 4. Altibase DB에서 지원하지 않는 Geometry type은 Altibase DB에 저장할 수 없다.  
 
-5. Altibase DB의 SQL 쿼리 버퍼 크기를 초과하는 WKB Geometry를 가진 Feature는 Altibase DB에 저장할 수 없다.  
+5. Altibase DB의 각 테이블에 설정된 Geometry Precision 크기를 초과하는 Feature는 Altibase DB에 저장할 수 없다.   
+   저장하려면 각 테이블에 설정된 Geometry Precision을 알맞게 변경해야한다.    
+   Geometry Precision의 기본값은 32000bytes이다.
 
 
 
