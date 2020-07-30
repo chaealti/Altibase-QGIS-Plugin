@@ -21,13 +21,13 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 ## Altibase QGIS Plugin 설치 
 
-1. QGIS의 플러그인 메뉴에서 검색하여 설치할 수 있다.
+1. QGIS의 플러그인 메뉴에서 검색하여 설치.
 
    ![1](./img/1.png)
 
    ![1-2](./img/1-2.jpg)
 
-2. 본 페이지의 Code -> Download ZIP을 다운로드 받은 후 QGIS의 플러그인 메뉴에서 'Install from ZIP' 으로 설치가 가능하다.
+2. 본 페이지의 Code -> Download ZIP을 다운로드 받은 후 QGIS의 플러그인 메뉴에서 'Install from ZIP' 으로 설치.
 
    ![2](./img/2.png)
    
