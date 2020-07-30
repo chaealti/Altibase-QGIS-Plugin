@@ -477,10 +477,12 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
 
             i=0
             for featureid, attributes in attribute_map.items():
-
-                if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                    QgsMessageLog.logMessage('Cannot change invalid feature (%s) attribute values.' % str(featureid), 'AltibasePlugin')
-                    continue
+                try:
+                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
+                        QgsMessageLog.logMessage('Cannot change invalid feature (%s) attribute values.' % str(featureid), 'AltibasePlugin')
+                        continue
+                except:
+                    pass
 
                 query_dic = {}
 
@@ -549,9 +551,12 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
 
             i=0
             for featureid, geometry in geometry_map.items():
-                if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                    QgsMessageLog.logMessage('Cannot change invalid feature (%s) geometry.' % str(featureid), 'AltibasePlugin')
-                    continue
+                try:
+                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
+                        QgsMessageLog.logMessage('Cannot change invalid feature (%s) geometry.' % str(featureid), 'AltibasePlugin')
+                        continue
+                except:
+                    pass
 
                 query_dic = {}
 
@@ -628,8 +633,8 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
                 try:
                     s_invalid_feature_is_removed = False
 
-                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                        try:
+                    try:
+                        if featureid == self.g_layers_invalid_feature_dic[layerid]:
                             dict = (item['querys'] for item in self.g_layer_querys if item['layerId'] == layerid)
                             query_dic_list = next(dict, False)
                             QgsMessageLog.logMessage( 'before (%s)' % str(query_dic_list) , 'AltibasePlugin' )
@@ -640,9 +645,8 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
                                         s_invalid_feature_is_removed = True
 
                             QgsMessageLog.logMessage( 'after (%s)' % str(query_dic_list) , 'AltibasePlugin' )
-                        except Exception as e2:
-                            QgsMessageLog.logMessage('Error : {0}'.format(e2), 'AltibasePlugin' )
-                            pass
+                    except:
+                        pass
 
                     if s_invalid_feature_is_removed == False:
                         self.g_layers_removed_features_dic[ layerid ].append( featureid )
@@ -689,12 +693,13 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
             else:
                 res_fid = alti_conn.execDMLs(query_dic_list['querys'])
                 if res_fid == 0:
-                    iface.messageBar().pushMessage( 'AltibasePlugin', 'Saving done!', Qgis.Info )
+                    iface.messageBar().pushMessage('AltibasePlugin', 'Saving done!', Qgis.Info)
                     dict = (item for item in self.g_layer_querys if item['layerId'] == layerid)
                     self.g_layer_querys.remove(query_dic_list)
                     self.g_layers_invalid_feature_dic[layerid] = -1
                 elif res_fid > 0:
-                    layer.select( res_fid )
+                    iface.messageBar().pushMessage('AltibasePlugin', 'Save failed. Please remove the invalid feature (%s) and try again.' % str(res_fid), Qgis.Critical)
+                    layer.select(res_fid)
                     self.g_layers_invalid_feature_dic[layerid] = res_fid
                 alti_conn.disconnectDB()
 

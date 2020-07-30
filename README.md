@@ -21,13 +21,13 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 ## Altibase QGIS Plugin 설치 
 
-1. QGIS의 플러그인 메뉴에서 검색하여 설치할 수 있다.
+1. QGIS의 플러그인 메뉴에서 검색하여 설치.
 
    ![1](./img/1.png)
 
    ![1-2](./img/1-2.jpg)
 
-2. 본 페이지의 Code -> Download ZIP을 다운로드 받은 후 QGIS의 플러그인 메뉴에서 'Install from ZIP' 으로 설치가 가능하다.
+2. 본 페이지의 Code -> Download ZIP을 다운로드 받은 후 QGIS의 플러그인 메뉴에서 'Install from ZIP' 으로 설치.
 
    ![2](./img/2.png)
    
@@ -77,7 +77,18 @@ Altibase QGIS Plugin을 사용하기 위해서는 다음 항목이 사전에 설
 
 ## 고려사항 
 
-1. Altibase DB에서 불러온 레이어는 Temporary scratch layer이므로 Project로 저장할 수 없다. Project로 저장하기 위해서는 ESRI shapefile 등 다른 타입으로 export 후 저장해야 한다.
+1. Altibase DB에서 불러온 레이어는 Temporary scratch layer이므로 Project로 저장할 수 없다.   
+   Project로 저장하기 위해서는 ESRI shapefile 등 다른 타입으로 export 후 저장해야 한다.  
+   
+2. Altibase DB에서 불러온 레이어의 Attribute 추가, 수정 그리고 삭제 사항은 Altibase DB에 저장되지 않는다.  
+
+3. Altibase DB에서 불러온 레이어 Feature의 Primary Key Attribute 값 수정은 지원하지 않는다.  
+
+4. Altibase DB에서 지원하지 않는 Geometry type은 Altibase DB에 저장할 수 없다.  
+
+5. Altibase DB의 각 테이블에 설정된 Geometry Precision 크기를 초과하는 Feature는 Altibase DB에 저장할 수 없다.   
+   저장하려면 각 테이블에 설정된 Geometry Precision을 알맞게 변경해야 한다.    
+   Geometry Precision의 기본값은 32000bytes이다.
 
 
 
