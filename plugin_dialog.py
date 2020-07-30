@@ -633,8 +633,8 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
                 try:
                     s_invalid_feature_is_removed = False
 
-                    if featureid == self.g_layers_invalid_feature_dic[layerid]:
-                        try:
+                    try:
+                        if featureid == self.g_layers_invalid_feature_dic[layerid]:
                             dict = (item['querys'] for item in self.g_layer_querys if item['layerId'] == layerid)
                             query_dic_list = next(dict, False)
                             QgsMessageLog.logMessage( 'before (%s)' % str(query_dic_list) , 'AltibasePlugin' )
@@ -645,9 +645,8 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
                                         s_invalid_feature_is_removed = True
 
                             QgsMessageLog.logMessage( 'after (%s)' % str(query_dic_list) , 'AltibasePlugin' )
-                        except Exception as e2:
-                            QgsMessageLog.logMessage('Error : {0}'.format(e2), 'AltibasePlugin' )
-                            pass
+                    except:
+                        pass
 
                     if s_invalid_feature_is_removed == False:
                         self.g_layers_removed_features_dic[ layerid ].append( featureid )
