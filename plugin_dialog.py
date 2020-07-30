@@ -693,12 +693,13 @@ class AltibasePluginDialog(QtWidgets.QDialog, FORM_CLASS):
             else:
                 res_fid = alti_conn.execDMLs(query_dic_list['querys'])
                 if res_fid == 0:
-                    iface.messageBar().pushMessage( 'AltibasePlugin', 'Saving done!', Qgis.Info )
+                    iface.messageBar().pushMessage('AltibasePlugin', 'Saving done!', Qgis.Info)
                     dict = (item for item in self.g_layer_querys if item['layerId'] == layerid)
                     self.g_layer_querys.remove(query_dic_list)
                     self.g_layers_invalid_feature_dic[layerid] = -1
                 elif res_fid > 0:
-                    layer.select( res_fid )
+                    iface.messageBar().pushMessage('AltibasePlugin', 'Save failed. Please remove the invalid feature (%s) and try again.' % str(res_fid), Qgis.Critical)
+                    layer.select(res_fid)
                     self.g_layers_invalid_feature_dic[layerid] = res_fid
                 alti_conn.disconnectDB()
 
